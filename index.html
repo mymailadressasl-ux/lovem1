@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seni Seviyorum 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 50%, #ffd4e5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 182, 193, 0.6);
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #d63384;
+            text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #c2185b;
+            font-style: italic;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .photo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+            animation-fill-mode: both;
+        }
+
+        .photo-card:nth-child(1) { animation-delay: 0.1s; }
+        .photo-card:nth-child(2) { animation-delay: 0.2s; }
+        .photo-card:nth-child(3) { animation-delay: 0.3s; }
+        .photo-card:nth-child(4) { animation-delay: 0.4s; }
+        .photo-card:nth-child(5) { animation-delay: 0.5s; }
+        .photo-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .photo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(214, 51, 132, 0.3);
+        }
+
+        .photo-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffeef8, #ffe0f0);
+        }
+
+        .photo-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-card:hover .photo-img {
+            transform: scale(1.1);
+        }
+
+        .photo-caption {
+            margin-top: 15px;
+            text-align: center;
+            color: #c2185b;
+            font-size: 1.1em;
+            font-style: italic;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #d63384;
+            font-size: 2em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-bg" id="heartsContainer"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Seni Seviyorum 💕</h1>
+            <p>Bizim En Güzel Anılarımız</p>
+        </div>
+
+        <div class="gallery">
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <img class="photo-img" src="photo1.jpg" alt="İlk anımız">
+                </div>
+                <div class="photo-caption">İlk anımız...</div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <img class="photo-img" src="photo2.jpg" alt="Mutluluğumuz">
+                </div>
+                <div class="photo-caption">Mutluluğumuz...</div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <img class="photo-img" src="photo3.jpg" alt="Gülüşlerimiz">
+                </div>
+                <div class="photo-caption">Gülüşlerimiz...</div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <img class="photo-img" src="photo4.jpg" alt="Sevgimiz">
+                </div>
+                <div class="photo-caption">Sevgimiz...</div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <img class="photo-img" src="photo5.jpg" alt="Maceralarımız">
+                </div>
+                <div class="photo-caption">Maceralarımız...</div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <img class="photo-img" src="photo6.jpg" alt="Sonsuza dek">
+                </div>
+                <div class="photo-caption">Sonsuza dek...</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            💖 Seni Çok Seviyorum 💖
+        </div>
+    </div>
+
+    <script>
+        // Floating hearts animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💕';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.getElementById('heartsContainer').appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 8000);
+        }
+
+        setInterval(createHeart, 800);
+    </script>
+</body>
+</html>
