@@ -6,8 +6,8 @@
     <title>Seni Seviyorum 💕</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* CSS AYARLARI AYNI KALIYOR */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
@@ -19,121 +19,30 @@
             transition: background-color 2s ease-in-out;
             background-color: #ffeef8;
         }
-
-        /* Arka Plan Emojileri */
-        .hearts-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 1;
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 25px;
-            animation: floatUp 6s linear forwards;
-        }
-
+        .hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .heart { position: absolute; font-size: 25px; animation: floatUp 6s linear forwards; }
         @keyframes floatUp {
             0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
-
-        /* Header */
         .header {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            margin: 20px 0 40px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            width: 90%;
-            max-width: 800px;
+            position: relative; z-index: 2; text-align: center; margin: 20px 0 40px; padding: 30px;
+            background: rgba(255, 255, 255, 0.95); border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 90%; max-width: 800px;
         }
-
-        .header h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            color: #d63384;
-        }
-
-        #dynamic-text {
-            font-size: 1.2rem;
-            color: #c2185b;
-            font-style: italic;
-            height: 30px;
-            transition: opacity 0.5s;
-        }
-
-        /* Kayan Galeri (Carousel) */
-        .slider-container {
-            width: 100vw;
-            overflow: hidden;
-            position: relative;
-            z-index: 2;
-            padding: 20px 0;
-        }
-
-        .gallery-slider {
-            display: flex;
-            width: max-content;
-            animation: scroll 30s linear infinite;
-        }
-
-        .slider-container:hover .gallery-slider {
-            animation-play-state: paused;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .photo-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 15px;
-            margin: 0 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            width: 300px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-
-        .photo-wrapper {
-            width: 100%;
-            height: 350px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-
+        .header h1 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: #d63384; }
+        #dynamic-text { font-size: 1.2rem; color: #c2185b; font-style: italic; height: 30px; transition: opacity 0.5s; }
+        .slider-container { width: 100vw; overflow: hidden; position: relative; z-index: 2; padding: 20px 0; }
+        .gallery-slider { display: flex; width: max-content; animation: scroll 40s linear infinite; }
+        .slider-container:hover .gallery-slider { animation-play-state: paused; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .photo-card { background: #ffffff; border-radius: 20px; padding: 15px; margin: 0 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); width: 300px; cursor: pointer; flex-shrink: 0; }
+        .photo-wrapper { width: 100%; height: 350px; border-radius: 15px; overflow: hidden; margin-bottom: 10px; }
         .photo-img { width: 100%; height: 100%; object-fit: cover; }
         .photo-caption { text-align: center; color: #c2185b; font-weight: 600; }
-
-        /* YouTube Müzik Alanı */
-        .music-container {
-            margin-top: 30px;
-            z-index: 2;
-            background: white;
-            padding: 15px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        /* Lightbox */
-        .lightbox {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+        .music-container { margin-top: 30px; z-index: 2; background: white; padding: 15px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 1000; }
         .lightbox img { max-width: 90%; max-height: 80%; border: 5px solid white; border-radius: 10px; }
-
         .footer { margin-top: 20px; padding: 20px; background: white; border-radius: 20px; z-index: 2; }
     </style>
 </head>
@@ -147,8 +56,7 @@
     </div>
 
     <div class="slider-container">
-        <div class="gallery-slider" id="slider">
-            </div>
+        <div class="gallery-slider" id="slider"></div>
     </div>
 
     <div class="music-container">
@@ -165,6 +73,7 @@
     </div>
 
     <script>
+        // Hata Düzeltildi: photo8'den sonra virgül eklendi
         const photos = [
             { src: 'photo1.jpg', cap: 'İlk Heyecanımız ✨' },
             { src: 'photo2.jpg', cap: 'En Güzel Tat 😊' },
@@ -172,7 +81,7 @@
             { src: 'photo4.jpg', cap: 'Sadece Sen ✨' },
             { src: 'photo6.jpg', cap: 'Aşkımız... 🌹' },
             { src: 'photo7.jpg', cap: 'Ömrümün Sahibi 🥰' },
-            { src: 'photo8.jpg', cap: 'Her Şeyim 💗' }
+            { src: 'photo8.jpg', cap: 'Her Şeyim 💗' },
             { src: 'photo9.jpg', cap: 'Takımımız ✨💗' }
         ];
 
@@ -231,12 +140,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
